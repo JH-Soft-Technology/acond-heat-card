@@ -1,4 +1,4 @@
-# Lovelace - Acond-heat-pump
+# Lovelace - Accond-heat-pump
 Custom lovelace card to manage ACCOND heat pump over modbus TCP rotocol. 
 
 #### Please ⭐️ this repo if you find it useful
