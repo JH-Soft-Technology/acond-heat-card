@@ -59,7 +59,7 @@ function getMode(element) {
 
 }
 
-class AcondHeatPump extends LitElement {
+class AcondHeatCard extends LitElement {
     static get properties() {
         return {
             _config: {},
@@ -98,7 +98,7 @@ class AcondHeatPump extends LitElement {
         ${this.renderStyle()}
         <ha-card>
             <span class="title">Acond Therm</span>
-            <div class="acond-heat-pump">
+            <div class="acond-heat-card">
                 <div class="acond-block"></div>
                 <div class="acond-temps"></div>
                 <div class="acond-modes"></div>
@@ -119,7 +119,7 @@ class AcondHeatPump extends LitElement {
               position: relative;
             }
     
-            .acond-heat-pump {
+            .acond-heat-card {
                 width: 100%;
                 height: 250px;
                 position: relative;
@@ -291,4 +291,4 @@ class AcondHeatPump extends LitElement {
       }
 }
 
-customElements.define("acond-heat-pump", AcondHeatPump);
+customElements.define("acond-heat-card", AcondHeatCard);
