@@ -12,9 +12,9 @@ There are couple of thinks you can set up.
 
 ***Actual temperatere*** Modbus TCP protocol is designed for control by a higher-level system. Thus, the temperature sensor is suppressed and the current temperature value is set via a service call or manually.
 
-***Pump states***
+***Set type of heating*** You can turn on/off the pump or set some of predefined types of heating.
 
-## Options
+## Pump states
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
