@@ -14,8 +14,9 @@ There are couple of thinks you can set up.
 
 ***Set type of heating*** You can turn on/off the pump or set some of predefined types of heating.
 
+<!--
 ## Pump states
-
+<!--
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | type | string | **Required** | `custom:love-lock-card`
@@ -23,29 +24,29 @@ There are couple of thinks you can set up.
 | title | string | **Optional** | Card title
 | popup | string | **Optional** | password, confirm, timeout
 | password | string | **Required** | Only required with popup:password
-
+<!--
 ## Installation
-
+<!--
 ### Now available in HACS
-
+<!--
 ![HACS](https://i.imgur.com/1xNjAuC.jpg)
-
+<!--
 ### Manual Install
-
+<!--
 1. Install the `love-lock-card` card by copying `love-lock-card.js` to `<config directory>/www/love-lock-card.js`
-
+<!--
 2. Link `love-lock-card` inside your `ui-lovelace.yaml` 
-
+<!--
 ```yaml
 resources:
   - url: /local/love-lock-card.js
     type: js
 ```
-
+<!--
 3. Add a custom card in your `ui-lovelace.yaml`
-
+<!--
 **Password Example**
-
+<!--
 ```yaml
 type: 'custom:love-lock-card'
 title: Lounge
@@ -56,9 +57,9 @@ cards:
     name: Lounge Lamp
     type: light
 ```
-
+<!--
 **Confirm Example**
-
+<!--
 ```yaml
 type: 'custom:love-lock-card'
 title: Lounge
@@ -68,9 +69,9 @@ cards:
     name: Lounge Lamp
     type: light
 ```
-
+<!--
 **Timeout Example**
-
+<!--
 ```yaml
 type: 'custom:love-lock-card'
 title: Lounge
@@ -80,8 +81,8 @@ cards:
     name: Lounge Lamp
     type: light
 ```
-
+<!--
 # Credits
 Idea comes from [Thomasloven's lovelace-toggle-lock-entity-row](https://github.com/thomasloven/lovelace-toggle-lock-entity-row)
-
+<!--
 Based on [vertical-stack-in-card](https://github.com/custom-cards/vertical-stack-in-card/blob/master/README.md)
