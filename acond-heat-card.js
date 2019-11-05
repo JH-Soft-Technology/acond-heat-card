@@ -1,29 +1,41 @@
 const LitElement = Object.getPrototypeOf(customElements.get("ha-panel-lovelace"));
-
 const html = LitElement.prototype.html;
 
 /**
- * 
- * @param {HTML} element - Element where all the changes were
- * @param {Object} changedProps - All changed properties
+ * Compare old and actual entity states
+ * @param { Object } element - Element where all the changes were
+ * @param { Object } changedProps - All changed properties
  */
 function hasConfigOrEntityChanged(element, changedProps) {
     if (changedProps.has("_config")) {
         return true;
     }
-
     const oldHass = changedProps.get("hass");
-    if (oldHass) {
-        return (
-        oldHass.states[element._config.entity] !==
-            element.hass.states[element._config.entity] ||
-        oldHass.states["sun.sun"] !== element.hass.states["sun.sun"]
-        );
+
+    if (oldHass) {      
+      const entListNames = findConfigEntityNames(element, 'actual').concat(findConfigEntityNames(element, 'target'));
+      const oldStates = entListNames.map(x => { return oldHass.states[x]; });
+      const actualStates = entListNames.map( x => { return element.hass.states[x] });
+      // check when states were changed or not
+      return (oldStates !== actualStates || oldHass.states["sun.sun"] !== element.hass.states["sun.sun"]);
     }
     
     return true;
 }
 
+/**
+ * Returns list of entity names from config by type
+ * @param { Object } element - Element where all changes are
+ * @param { String } type  - Type of elements. Basically can be target/actual
+ */
+function findConfigEntityNames(element, type) {
+  return element._config.entities.map(x => { return x[type]; }).filter(x => { return x !== undefined; });
+}
+
+/**
+ * 
+ * @param { Object } element - Element where all states and other stuff from hass are placed
+ */
 function getCircuits(element) {
     const list = element._config.entities.filter(x => x.hasOwnProperty('circuit'));    
 
@@ -100,7 +112,27 @@ class AcondHeatCard extends LitElement {
             <span class="title">Acond Therm</span>
             <div class="acond-heat-card">
                 <div class="acond-block"></div>
-                <div class="acond-temps"></div>
+                <div class="acond-temps">
+                  <ul>
+                  ${
+                    circuits.map(circuit =>
+                      html`
+                        <li>
+                          <span class="circuit-name">
+                            ${ circuit.name }
+                          </span>
+                          <span class="circuit-temps">
+                            ${ circuit.actual.state } ${ circuit.actual.unit }
+                          </span>
+                          <span class="circuit-temps">
+                            ${ circuit.target.state } ${ circuit.actual.unit }
+                          </span>
+                        </li>
+                      `
+                    )
+                  }
+                  </ul>
+                </div>
                 <div class="acond-modes"></div>
             </div>
         </ha-card>`;
@@ -116,7 +148,7 @@ class AcondHeatCard extends LitElement {
               padding-bottom: 1.3em;
               padding-left: 1em;
               padding-right: 1em;
-              position: relative;
+              position: relative;              
             }
     
             .acond-heat-card {
@@ -141,6 +173,7 @@ class AcondHeatCard extends LitElement {
                 top: 0;
                 width: 67%;
                 height: 75%;
+                color: var(--primary-text-color);
             }
 
             .acond-modes {
@@ -150,6 +183,31 @@ class AcondHeatCard extends LitElement {
                 bottom: 0;
                 width: 100%;
                 height: 22%;
+            }
+
+            ul {
+              padding: 0;
+              margin: 0;
+            }
+
+            ul li {
+              font-size: 1.2em;
+              display: flex;
+              flex-wrap: wrap;
+              list-style-type: none;
+            }
+
+            .circuit-temps {
+              position: relative;
+              width: 29%;
+              border: 1px solid red;
+              text-align: center;
+            }
+
+            .circuit-name {
+              position: relative;
+              width: 40%;
+              border: 1px solid blue;
             }
 
             .clear {
