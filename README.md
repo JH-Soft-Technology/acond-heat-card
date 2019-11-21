@@ -1,6 +1,6 @@
 [![Version](https://img.shields.io/badge/version-0.0.1-green.svg?style=for-the-badge)](#)
 [![mantained](https://img.shields.io/maintenance/yes/2019.svg?style=for-the-badge)](#)
-[![maintainer](https://img.shields.io/badge/maintainer-%20%40jhoralek.svg?style=for-the-badge)](#)
+[![maintainer](https://img.shields.io/badge/maintainer-jhoralek.svg?style=for-the-badge)](#)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
 # Lovelace - Accond-heat-card
