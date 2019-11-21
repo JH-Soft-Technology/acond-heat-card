@@ -2,6 +2,7 @@
 [![mantained](https://img.shields.io/maintenance/yes/2019.svg?style=for-the-badge)](#)
 [![GitHub](https://img.shields.io/github/license/jhoralek/acond-heat-card?style=for-the-badge)](#)
 [![GitHub last commit](https://img.shields.io/github/last-commit/jhoralek/acond-heat-card?style=for-the-badge)](#)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/jhoralek/acond-heat-card?style=for-the-badge)](#)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
 # Lovelace - Accond-heat-card
