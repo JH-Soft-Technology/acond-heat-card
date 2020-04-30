@@ -94,3 +94,5 @@ cards:
 Idea comes from [Thomasloven's lovelace-toggle-lock-entity-row](https://github.com/thomasloven/lovelace-toggle-lock-entity-row)
 <!--
 Based on [vertical-stack-in-card](https://github.com/custom-cards/vertical-stack-in-card/blob/master/README.md)
+
+[![buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jhoralek)
